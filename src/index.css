@@ -1,0 +1,50 @@
+/* src/index.css */
+
+/* Import Tailwind CSS base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Define global styles or import fonts here */
+body {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif; /* Sets Inter as the primary sans-serif font */
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark; /* Example: basic light/dark mode support */
+  color: rgba(255, 255, 255, 0.87); /* Default text color for dark mode */
+  background-color: #242424; /* Default background for dark mode */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Example of how you might set up a root font size for easier responsive typography if using rem units */
+/* html {
+  font-size: 16px;
+} */
+
+/* Ensure the root element takes up full height if you're doing full-page layouts */
+#root {
+  max-width: 100%; /* Changed from 1280px to 100% to allow App.tsx to control its own max-width */
+  margin: 0 auto;
+  /* padding: 2rem; */ /* Commented out as App.tsx has its own padding */
+  /*text-align: center;*/
+  min-height: 100vh; /* Ensure the app container takes at least the full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Basic light/dark mode styling (can be expanded) */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  /* You might want to adjust other elements for light mode if needed */
+  /* For example, if using a specific button style that needs light/dark variants not covered by Tailwind */
+}

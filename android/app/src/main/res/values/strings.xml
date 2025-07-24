@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Financial Dashboard</string>
+    <string name="title_activity_main">Financial Dashboard</string>
+    <string name="package_name">com.hiddenglam.financialdashboard</string>
+    <string name="custom_url_scheme">com.hiddenglam.financialdashboard</string>
+</resources>
