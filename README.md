@@ -126,6 +126,101 @@ Toggle between light and dark themes using the moon/sun icon in the header.
 - **Search & Filter**: Find specific transactions quickly
 - **Delete Transactions**: Remove transactions (requires backend API)
 
+## Build Instructions
+
+### Web Application Build
+
+#### Development Build
+```bash
+# Start development server with hot reload
+npm run dev
+```
+The app will be available at `http://localhost:5173`
+
+#### Production Build
+```bash
+# Build for production
+npm run build
+
+# Preview the production build locally
+npm run preview
+```
+The built files will be in the `dist/` directory.
+
+#### Build Verification
+```bash
+# Run linting before build
+npm run lint
+
+# Type checking
+npx tsc --noEmit
+```
+
+### Android Application Build
+
+This project supports Android builds using Capacitor. Follow these steps to build the Android app:
+
+#### Prerequisites
+- **Android Studio**: Install from [developer.android.com](https://developer.android.com/studio)
+- **Java Development Kit (JDK)**: Version 11 or higher
+- **Android SDK**: API level 22 or higher
+- **Node.js**: Version 16 or higher
+
+#### Android Build Steps
+
+1. **Install Capacitor CLI** (if not already installed):
+```bash
+npm install -g @capacitor/cli
+```
+
+2. **Build the web assets**:
+```bash
+npm run build
+```
+
+3. **Sync with Android platform**:
+```bash
+npx cap sync android
+```
+
+4. **Open in Android Studio**:
+```bash
+npx cap open android
+```
+
+5. **Build APK in Android Studio**:
+   - Click on **Build** → **Build Bundle(s) / APK(s)** → **Build APK(s)**
+   - Or use Gradle command: `./gradlew assembleDebug`
+
+6. **Build Release APK**:
+```bash
+cd android
+./gradlew assembleRelease
+```
+
+#### Android Build Troubleshooting
+
+If you encounter build issues, try:
+
+```bash
+# Clean and rebuild
+cd android
+./gradlew clean
+./gradlew build
+
+# Update Capacitor
+npm install @capacitor/core@latest @capacitor/cli@latest
+npx cap sync
+```
+
+#### Build Configuration Files
+
+- **Web Build**: Configured in `vite.config.ts`
+- **Android Build**: Configured in `android/app/build.gradle`
+- **Capacitor Config**: `capacitor.config.ts`
+
+For detailed Android setup instructions, see `ANDROID_BUILD_GUIDE.md`.
+
 ## Development
 
 ### Available Scripts
