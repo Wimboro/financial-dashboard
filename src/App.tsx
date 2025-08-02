@@ -566,7 +566,18 @@ const Dashboard = () => {
         // Check for configuration errors
         if (configError) {
             console.error('Configuration error:', configError);
-            setError(`Configuration error: ${configError}`);
+            
+            // Provide more helpful error messages
+            let userFriendlyError = configError;
+            if (configError.includes('42P01')) {
+                userFriendlyError = 'Database table not found. Please run "npm run setup-db" after setting up Supabase credentials.';
+            } else if (configError.includes('permission denied')) {
+                userFriendlyError = 'Permission denied. Please check your Supabase configuration and authentication.';
+            } else if (configError.includes('your_supabase_project_url') || configError.includes('your_supabase_anon_key')) {
+                userFriendlyError = 'Supabase not configured. Please update your .env file with real Supabase credentials. See QUICK_SETUP_GUIDE.md for instructions.';
+            }
+            
+            setError(userFriendlyError);
             setIsLoading(false);
             return;
         }
@@ -585,7 +596,7 @@ const Dashboard = () => {
             console.log('Missing configuration, showing setup guide');
             setIsLoading(false);
             setRawData([]);
-            setError('Please configure your Google Sheet ID and Backend API URL in Settings to get started.');
+            setError('Please configure your Google Sheet ID and Backend API URL in Settings to get started. If you see this message, make sure you have set up Supabase properly first.');
         }
     }, [configLoading, configError, config?.google_sheet_id, config?.backend_api_url_localhost, config?.backend_api_url_production]); // Re-fetch when config loading is done or config changes
 

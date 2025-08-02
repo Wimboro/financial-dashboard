@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "setup-env": "node setup-env.js",
     "setup-db": "node scripts/setup-database.js",
+    "quick-setup": "node scripts/quick-setup.js",
     "android:build": "npm run build && npx cap sync android",
     "android:open": "npx cap open android",
     "android:run": "npm run android:build && npx cap run android",
