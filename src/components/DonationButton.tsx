@@ -20,7 +20,7 @@ const DonationButton: React.FC<DonationButtonProps> = ({
   const variantClasses = {
     primary: "bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white shadow-lg hover:shadow-xl",
     secondary: "bg-white dark:bg-slate-800 border-2 border-pink-500 text-pink-500 hover:bg-pink-50 dark:hover:bg-pink-900/20",
-    floating: "fixed bottom-6 right-6 bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white shadow-2xl hover:shadow-3xl z-40 rounded-full"
+    floating: "fixed bottom-6 right-6 bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white shadow-2xl hover:shadow-3xl z-40 rounded-full hidden md:block"
   }
   
   const sizeClasses = {
