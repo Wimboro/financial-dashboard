@@ -807,8 +807,8 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+        </div>
         ); 
-    }
     
     if (!isLoading && rawData.length === 0 && !error) { 
         return (
@@ -840,7 +840,7 @@ const Dashboard = () => {
                                 </button>
                                 <UserProfile />
                             </div>
-                            {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
+                            {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed!.toLocaleTimeString('id-ID')}</p>}
                         </div>
                     </div>
                 </header>
@@ -957,7 +957,7 @@ const Dashboard = () => {
                             <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}><RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}</button>
                             <UserProfile />
                         </div>
-                        {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
+                        {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed!.toLocaleTimeString('id-ID')}</p>}
                     </div>
                 </div>
             </header>
@@ -1025,7 +1025,7 @@ const Dashboard = () => {
                         <div className="flex items-center gap-2"><BarChart3 className="w-7 h-7 text-sky-600" /><h2 className="text-2xl font-semibold text-slate-700 dark:text-slate-200">Rincian Kategori Bulanan</h2></div>
                         {availableMonthsForCategoryView.length > 0 && <select value={selectedMonthKey} onChange={(e) => { setSelectedMonthKey(e.target.value); setGeminiInsights(null); setGeminiError(null); setSelectedDailyDetailsDate(null);}} className="mt-3 sm:mt-0 p-2 border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors">{availableMonthsForCategoryView.map(month => <option key={month.value} value={month.value}>{month.label}</option>)}</select>}
                     </div>
-                    {selectedMonthKey && monthlyCategorizedBreakdown[selectedMonthKey]?.expenseCategories && monthlyCategorizedBreakdown[selectedMonthKey]?.expenseCategories.length > 0 && (
+                    {selectedMonthKey && monthlyCategorizedBreakdown[selectedMonthKey]?.expenseCategories && (monthlyCategorizedBreakdown[selectedMonthKey]?.expenseCategories?.length ?? 0) > 0 && (
                         <div className="my-4 p-4 border-t border-b border-slate-200 dark:border-slate-600">
                             <button onClick={handleGetSpendingInsights} disabled={isGeminiLoading} className="mb-3 px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg hover:from-purple-600 hover:to-indigo-700 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70 disabled:cursor-not-allowed">
                                 {isGeminiLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
@@ -1036,7 +1036,7 @@ const Dashboard = () => {
                             {geminiInsights && (
                                 <div className="mt-2 p-4 bg-sky-50 dark:bg-sky-900 border border-sky-200 dark:border-sky-700 rounded-lg">
                                     <h4 className="text-lg font-semibold text-sky-700 dark:text-sky-300 mb-3">Wawasan Keuangan dari Gemini:</h4>
-                                    <div className="prose prose-sm max-w-none text-slate-700 dark:text-slate-300">{renderMarkdownToReact(geminiInsights)}</div>
+                                    <div className="prose prose-sm max-w-none text-slate-700 dark:text-slate-300">{renderMarkdownToReact(geminiInsights!)}</div>
                                 </div>
                             )}
                         </div>
@@ -1233,6 +1233,7 @@ const Dashboard = () => {
     );
 };
 
+}
 // Main App Component with Authentication
 const App = () => {
     return (
