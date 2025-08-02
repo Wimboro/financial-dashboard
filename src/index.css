@@ -38,6 +38,19 @@ body {
   flex-direction: column;
 }
 
+/* Mobile safe area padding for status bar */
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Ensure sticky header works properly on mobile */
+@media (max-width: 640px) {
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
 
 /* Basic light/dark mode styling (can be expanded) */
 @media (prefers-color-scheme: light) {

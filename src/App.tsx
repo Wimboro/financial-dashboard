@@ -713,7 +713,7 @@ const Dashboard = () => {
             <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-4 sm:p-6 md:p-8 font-sans">
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
-                <header className="mb-6 flex flex-col sm:flex-row justify-between items-center">
+                <header className="sticky top-0 z-50 mb-6 flex flex-col sm:flex-row justify-between items-center bg-slate-100 dark:bg-slate-900 pt-safe pb-4 px-4 sm:px-6 md:px-8 -mx-4 sm:-mx-6 md:-mx-8 sm:relative sm:top-auto sm:z-auto sm:bg-transparent sm:pt-0 sm:pb-0 sm:px-0 sm:-mx-0">
                     <div className="flex items-center gap-3 sm:gap-4">
                         <Logo onClick={handleRefresh} loading={isLoading} />
                         <div>
@@ -754,7 +754,7 @@ const Dashboard = () => {
             <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-4 sm:p-6 md:p-8 font-sans">
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
-                <header className="mb-6 flex flex-col sm:flex-row justify-between items-center">
+                <header className="sticky top-0 z-50 mb-6 flex flex-col sm:flex-row justify-between items-center bg-slate-100 dark:bg-slate-900 pt-safe pb-4 px-4 sm:px-6 md:px-8 -mx-4 sm:-mx-6 md:-mx-8 sm:relative sm:top-auto sm:z-auto sm:bg-transparent sm:pt-0 sm:pb-0 sm:px-0 sm:-mx-0">
                     <div className="flex items-center gap-3 sm:gap-4">
                         <Logo onClick={handleRefresh} loading={isLoading} />
                         <div>
@@ -802,7 +802,7 @@ const Dashboard = () => {
             <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-4 sm:p-6 md:p-8 font-sans">
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
-                <header className="mb-6 flex flex-col sm:flex-row justify-between items-center">
+                <header className="sticky top-0 z-50 mb-6 flex flex-col sm:flex-row justify-between items-center bg-slate-100 dark:bg-slate-900 pt-safe pb-4 px-4 sm:px-6 md:px-8 -mx-4 sm:-mx-6 md:-mx-8 sm:relative sm:top-auto sm:z-auto sm:bg-transparent sm:pt-0 sm:pb-0 sm:px-0 sm:-mx-0">
                     <div className="flex items-center gap-3 sm:gap-4">
                         <Logo onClick={handleRefresh} loading={isLoading} />
                         <div>
@@ -914,7 +914,7 @@ const Dashboard = () => {
                 confirmButtonText="Hapus Permanen"
             />
             
-            <header className="mb-6 flex flex-col sm:flex-row justify-between items-center">
+            <header className="sticky top-0 z-50 mb-6 flex flex-col sm:flex-row justify-between items-center bg-slate-100 dark:bg-slate-900 pt-safe pb-4 px-4 sm:px-6 md:px-8 -mx-4 sm:-mx-6 md:-mx-8 sm:relative sm:top-auto sm:z-auto sm:bg-transparent sm:pt-0 sm:pb-0 sm:px-0 sm:-mx-0">
                 <div className="flex items-center gap-3 sm:gap-4">
                     <Logo onClick={handleRefresh} loading={isLoading} />
                     <div>
