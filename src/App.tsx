@@ -1127,21 +1127,74 @@ const Dashboard = () => {
                      <div className="flex items-center gap-2"><LayoutList className="w-7 h-7 text-sky-600" /><h2 className="text-2xl font-semibold text-slate-700 dark:text-slate-200">Semua Transaksi</h2></div>
                     <div className="relative mt-3 sm:mt-0"><input type="text" placeholder="Cari transaksi..." className="pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}/><Search className="w-5 h-5 text-slate-400 absolute top-1/2 left-3 transform -translate-y-1/2" /></div>
                 </div>
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left table-auto">
-                        <thead className="bg-slate-50 dark:bg-slate-700 border-b border-slate-200 dark:border-slate-600"><tr>{tableHeaders.map((headerName) => { const sortKey = headerKeysForSort[headerName as keyof typeof headerKeysForSort]; return (<th key={headerName} className="px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors" onClick={() => headerName !== 'Actions' && requestSort(sortKey)}><div className="flex items-center">{headerName === 'Date' && <CalendarDays className="w-4 h-4 mr-1 text-slate-500" />}{headerName === 'Category' && <Tag className="w-4 h-4 mr-1 text-slate-500" />}{headerName}{headerName !== 'Actions' && getSortIcon(sortKey)}</div></th>);})}</tr></thead>
-                        <tbody className="divide-y divide-slate-200 dark:divide-slate-600">{paginatedData.map((item) => (<tr key={item.id} className="hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                            <td className="px-4 py-3 whitespace-nowrap text-sm text-slate-700 dark:text-slate-300">{item.date || 'N/A'}</td>
-                            <td className="px-4 py-3 text-sm text-slate-700 dark:text-slate-300 max-w-xs truncate" title={item.description}>{item.description || 'N/A'}</td>
-                            <td className="px-4 py-3 whitespace-nowrap text-sm text-slate-700 dark:text-slate-300"><span className={`px-2 py-1 text-xs font-medium rounded-full ${item.category && item.category !== 'Uncategorized' ? 'bg-sky-100 dark:bg-sky-900 text-sky-700 dark:text-sky-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300'}`}>{item.category || 'N/A'}</span></td>
-                            <td className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${item.type === 'income' ? 'text-emerald-600' : 'text-red-600'}`}>{formatCurrency(item.amount)}</td>
-                            <td className="px-4 py-3 whitespace-nowrap text-sm text-slate-700 dark:text-slate-300">{item.type === 'income' ? 'Pemasukan' : 'Pengeluaran'}</td>
-                            <td className="px-4 py-3 whitespace-nowrap text-sm text-center">
-                                <button onClick={() => handleDeleteRequest(item)} className="text-red-500 hover:text-red-700 p-1 rounded-full hover:bg-red-100 dark:hover:bg-red-900 transition-colors" title="Hapus Transaksi Permanen"><Trash2 size={18} /></button>
-                            </td>
-                        </tr>))}</tbody>
-                    </table>
+                
+                {/* Card-based Transaction List */}
+                <div className="space-y-3">
+                    {paginatedData.map((item) => (
+                        <div key={item.id} className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-4 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-all duration-200">
+                            <div className="flex items-center justify-between">
+                                {/* Left side - Transaction Icon and Details */}
+                                <div className="flex items-center gap-3 flex-1 min-w-0">
+                                    {/* Transaction Type Icon */}
+                                    <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${
+                                        item.type === 'income' 
+                                            ? 'bg-green-100 dark:bg-green-900/30' 
+                                            : 'bg-red-100 dark:bg-red-900/30'
+                                    }`}>
+                                        {item.type === 'income' ? (
+                                            <svg className="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
+                                            </svg>
+                                        ) : (
+                                            <svg className="w-5 h-5 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 13l-5 5m0 0l-5-5m5 5V6" />
+                                            </svg>
+                                        )}
+                                    </div>
+                                    
+                                    {/* Transaction Details */}
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between mb-1">
+                                            <h3 className="text-sm font-medium text-slate-900 dark:text-slate-100 truncate">
+                                                {item.description || 'N/A'}
+                                            </h3>
+                                            <span className={`text-sm font-semibold ${
+                                                item.type === 'income' 
+                                                    ? 'text-green-600 dark:text-green-400' 
+                                                    : 'text-red-600 dark:text-red-400'
+                                            }`}>
+                                                {item.type === 'income' ? '+' : '-'}{formatCurrency(Math.abs(item.amount))}
+                                            </span>
+                                        </div>
+                                        
+                                        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                                            <div className="flex items-center gap-2">
+                                                <span>{item.date || 'N/A'}</span>
+                                                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                                    item.category && item.category !== 'Uncategorized' 
+                                                        ? 'bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300' 
+                                                        : 'bg-slate-200 dark:bg-slate-600 text-slate-600 dark:text-slate-300'
+                                                }`}>
+                                                    {item.category || 'N/A'}
+                                                </span>
+                                            </div>
+                                            
+                                            {/* Delete Button */}
+                                            <button 
+                                                onClick={() => handleDeleteRequest(item)} 
+                                                className="text-slate-400 hover:text-red-500 p-1 rounded-full hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors ml-2" 
+                                                title="Hapus Transaksi Permanen"
+                                            >
+                                                <Trash2 size={14} />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+                
                 {paginatedData.length === 0 && filteredAndSortedData.length > 0 && <p className="text-center text-slate-500 dark:text-slate-400 py-8">Tidak ada transaksi di halaman ini.</p>}
                 {filteredAndSortedData.length === 0 && !isLoading && <p className="text-center text-slate-500 dark:text-slate-400 py-8">Tidak ada transaksi yang cocok dengan kriteria Anda atau tidak ada data.</p>}
                 {totalPages > 1 && <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-200 dark:border-slate-600"><p className="text-sm text-slate-600 dark:text-slate-400">Halaman {currentPage} dari {totalPages} (Total: {filteredAndSortedData.length} item)</p><div className="flex gap-2"><button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} className="px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Sebelumnya</button><button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} className="px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Berikutnya</button></div></div>}

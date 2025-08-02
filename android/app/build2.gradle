@@ -1,0 +1,36 @@
+// ... other plugins
+
+plugins {
+    id 'com.android.application' // or 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    // ... other android configurations
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8 // Or your desired Java version
+        targetCompatibility JavaVersion.VERSION_1_8 // Or your desired Java version
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8' // Or your desired Kotlin JVM target, matching sourceCompatibility
+    }
+}
+
+// If you are using Kotlin outside the `android` block (e.g., for `buildSrc` or other modules)
+// you might need to configure it like this:
+// tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+//     kotlinOptions {
+//         jvmTarget = "1.8" // Or your desired Kotlin JVM target
+//     }
+// }
+
+// Recommended: Using JVM Toolchain for consistency
+kotlin {
+    jvmToolchain(11)
+    // Or your desired JDK version. This will ensure both Java and Kotlin use JDK 11.
+    // Android Studio Electric Eel and newer bundle JDK 17.
+    // Choose a version that is compatible with your project's requirements
+    // and the Android Gradle Plugin version.
+}
