@@ -1194,7 +1194,11 @@ const Dashboard = () => {
                 {filteredAndSortedData.length === 0 && !isLoading && <p className="text-center text-slate-500 dark:text-slate-400 py-8">Tidak ada transaksi yang cocok dengan kriteria Anda atau tidak ada data.</p>}
                 {totalPages > 1 && <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-200 dark:border-slate-600"><p className="text-sm text-slate-600 dark:text-slate-400">Halaman {currentPage} dari {totalPages} (Total: {filteredAndSortedData.length} item)</p><div className="flex gap-2"><button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} className="px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Sebelumnya</button><button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} className="px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Berikutnya</button></div></div>}
             </section>
-            <footer className="mt-12 text-center text-sm text-slate-500 dark:text-slate-400"><p>Dasbor Keuangan &copy; {new Date().getFullYear()}. Dibuat dengan React, Tailwind CSS, dan Recharts.</p><p>Data diakses melalui Backend API dengan Google Service Account.</p></footer>
+            {/* Footer - Hidden on mobile */}
+            <footer className="mt-12 text-center text-sm text-slate-500 dark:text-slate-400 hidden sm:block">
+                <p>Dasbor Keuangan &copy; {new Date().getFullYear()}. Dibuat dengan React, Tailwind CSS, dan Recharts.</p>
+                <p>Data diakses melalui Backend API dengan Google Service Account.</p>
+            </footer>
             
             {/* Floating Donation Button */}
             <DonationButton variant="floating" size="lg" />
