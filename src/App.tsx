@@ -710,40 +710,47 @@ const Dashboard = () => {
 
     if (isLoading && rawData.length === 0) { 
         return (
-            <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-4 sm:p-6 md:p-8 font-sans">
+            <div className="min-h-screen bg-slate-100 dark:bg-slate-900 font-sans">
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
-                <header className="mb-6 flex flex-col sm:flex-row justify-between items-center">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                        <Logo onClick={handleRefresh} loading={isLoading} />
-                        <div>
-                            <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200">Dasbor Keuangan</h1>
-                            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Data dari Google Sheet (via Backend API dengan Service Account).</p>
+                {/* Sticky Header for Mobile */}
+                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-8 pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
+                    <div className="flex flex-col sm:flex-row justify-between items-center">
+                        <div className="flex items-center gap-3 sm:gap-4">
+                            <Logo onClick={handleRefresh} loading={isLoading} />
+                            <div>
+                                <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200">Dasbor Keuangan</h1>
+                                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Data dari Google Sheet (via Backend API dengan Service Account).</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="mt-4 sm:mt-0 flex flex-col items-end gap-2">
-                        <div className="flex items-center gap-2">
-                            <DonationButton variant="secondary" size="sm" />
-                            <button 
-                                onClick={toggleDarkMode}
-                                className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
-                                title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                            >
-                                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-                            </button>
-                            <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}>
-                                <RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}
-                            </button>
-                            <UserProfile />
+                        <div className="mt-4 sm:mt-0 flex flex-col items-end gap-2">
+                            <div className="flex items-center gap-2">
+                                <DonationButton variant="secondary" size="sm" />
+                                <button 
+                                    onClick={toggleDarkMode}
+                                    className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                                    title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                                >
+                                    {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+                                </button>
+                                <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}>
+                                    <RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}
+                                </button>
+                                <UserProfile />
+                            </div>
+                            {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
                         </div>
-                        {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
                     </div>
                 </header>
+                
+                {/* Main Content Container with padding */}
+                <div className="p-4 sm:p-6 md:p-8">
                 
                 <div className="flex flex-col justify-center items-center h-[70vh]">
                     <RefreshCw size={48} className="text-sky-500 mb-4 animate-spin" />
                     <p className="text-xl text-slate-700 dark:text-slate-200">Memuat Data Keuangan...</p>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">Mengambil dari Google Sheet...</p>
+                </div>
                 </div>
             </div>
         ); 
@@ -751,35 +758,41 @@ const Dashboard = () => {
     
     if (error && rawData.length === 0) { 
         return (
-            <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-4 sm:p-6 md:p-8 font-sans">
+            <div className="min-h-screen bg-slate-100 dark:bg-slate-900 font-sans">
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
-                <header className="mb-6 flex flex-col sm:flex-row justify-between items-center">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                        <Logo onClick={handleRefresh} loading={isLoading} />
-                        <div>
-                            <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200">Dasbor Keuangan</h1>
-                            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Data dari Google Sheet (via Backend API dengan Service Account).</p>
+                {/* Sticky Header for Mobile */}
+                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-8 pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
+                    <div className="flex flex-col sm:flex-row justify-between items-center">
+                        <div className="flex items-center gap-3 sm:gap-4">
+                            <Logo onClick={handleRefresh} loading={isLoading} />
+                            <div>
+                                <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200">Dasbor Keuangan</h1>
+                                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Data dari Google Sheet (via Backend API dengan Service Account).</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="mt-4 sm:mt-0 flex flex-col items-end gap-2">
-                        <div className="flex items-center gap-2">
-                            <DonationButton variant="secondary" size="sm" />
-                            <button 
-                                onClick={toggleDarkMode}
-                                className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
-                                title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                            >
-                                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-                            </button>
-                            <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}>
-                                <RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}
-                            </button>
-                            <UserProfile />
+                        <div className="mt-4 sm:mt-0 flex flex-col items-end gap-2">
+                            <div className="flex items-center gap-2">
+                                <DonationButton variant="secondary" size="sm" />
+                                <button 
+                                    onClick={toggleDarkMode}
+                                    className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                                    title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                                >
+                                    {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+                                </button>
+                                <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}>
+                                    <RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}
+                                </button>
+                                <UserProfile />
+                            </div>
+                            {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
                         </div>
-                        {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
                     </div>
                 </header>
+                
+                {/* Main Content Container with padding */}
+                <div className="p-4 sm:p-6 md:p-8">
                 
                 <div className="flex flex-col justify-center items-center h-[70vh] bg-red-50 dark:bg-red-900/20 rounded-xl p-6 text-center">
                     <Info size={48} className="text-red-500 mb-4" />
@@ -799,35 +812,41 @@ const Dashboard = () => {
     
     if (!isLoading && rawData.length === 0 && !error) { 
         return (
-            <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-4 sm:p-6 md:p-8 font-sans">
+            <div className="min-h-screen bg-slate-100 dark:bg-slate-900 font-sans">
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
-                <header className="mb-6 flex flex-col sm:flex-row justify-between items-center">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                        <Logo onClick={handleRefresh} loading={isLoading} />
-                        <div>
-                            <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200">Dasbor Keuangan</h1>
-                            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Data dari Google Sheet (via Backend API dengan Service Account).</p>
+                {/* Sticky Header for Mobile */}
+                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-8 pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
+                    <div className="flex flex-col sm:flex-row justify-between items-center">
+                        <div className="flex items-center gap-3 sm:gap-4">
+                            <Logo onClick={handleRefresh} loading={isLoading} />
+                            <div>
+                                <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200">Dasbor Keuangan</h1>
+                                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Data dari Google Sheet (via Backend API dengan Service Account).</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="mt-4 sm:mt-0 flex flex-col items-end gap-2">
-                        <div className="flex items-center gap-2">
-                            <DonationButton variant="secondary" size="sm" />
-                            <button 
-                                onClick={toggleDarkMode}
-                                className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
-                                title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                            >
-                                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-                            </button>
-                            <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}>
-                                <RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}
-                            </button>
-                            <UserProfile />
+                        <div className="mt-4 sm:mt-0 flex flex-col items-end gap-2">
+                            <div className="flex items-center gap-2">
+                                <DonationButton variant="secondary" size="sm" />
+                                <button 
+                                    onClick={toggleDarkMode}
+                                    className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                                    title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                                >
+                                    {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+                                </button>
+                                <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}>
+                                    <RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}
+                                </button>
+                                <UserProfile />
+                            </div>
+                            {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
                         </div>
-                        {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
                     </div>
                 </header>
+                
+                {/* Main Content Container with padding */}
+                <div className="p-4 sm:p-6 md:p-8">
                 
                 <div className="flex flex-col justify-center items-center h-[70vh] bg-slate-50 dark:bg-slate-800 rounded-xl p-6 text-center">
                     <Info size={48} className="text-slate-500 mb-4" />
@@ -855,7 +874,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-4 sm:p-6 md:p-8 font-sans">
+        <div className="min-h-screen bg-slate-100 dark:bg-slate-900 font-sans">
             <style>{`
                 :root {
                     --tooltip-bg: #ffffff;
@@ -914,30 +933,36 @@ const Dashboard = () => {
                 confirmButtonText="Hapus Permanen"
             />
             
-            <header className="mb-6 flex flex-col sm:flex-row justify-between items-center">
-                <div className="flex items-center gap-3 sm:gap-4">
-                    <Logo onClick={handleRefresh} loading={isLoading} />
-                    <div>
-                        <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200">Dasbor Keuangan</h1>
-                        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Data dari Google Sheet (via Backend API dengan Service Account).</p>
+            {/* Sticky Header for Mobile */}
+            <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-8 pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
+                <div className="flex flex-col sm:flex-row justify-between items-center">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                        <Logo onClick={handleRefresh} loading={isLoading} />
+                        <div>
+                            <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200">Dasbor Keuangan</h1>
+                            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">Data dari Google Sheet (via Backend API dengan Service Account).</p>
+                        </div>
                     </div>
-                </div>
-                <div className="mt-4 sm:mt-0 flex flex-col items-end gap-2">
-                    <div className="flex items-center gap-2">
-                        <DonationButton variant="secondary" size="sm" />
-                        <button 
-                            onClick={toggleDarkMode}
-                            className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
-                            title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                        >
-                            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-                        </button>
-                        <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}><RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}</button>
-                        <UserProfile />
+                    <div className="mt-4 sm:mt-0 flex flex-col items-end gap-2">
+                        <div className="flex items-center gap-2">
+                            <DonationButton variant="secondary" size="sm" />
+                            <button 
+                                onClick={toggleDarkMode}
+                                className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                                title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                            >
+                                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+                            </button>
+                            <button onClick={handleRefresh} className="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors flex items-center gap-2 shadow-md disabled:opacity-70" disabled={isLoading}><RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /> {isLoading ? 'Menyegarkan...' : 'Segarkan Data'}</button>
+                            <UserProfile />
+                        </div>
+                        {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
                     </div>
-                    {lastRefreshed && !isLoading && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Terakhir disegarkan: {lastRefreshed.toLocaleTimeString('id-ID')}</p>}
                 </div>
             </header>
+            
+            {/* Main Content Container with padding */}
+            <div className="p-4 sm:p-6 md:p-8">
             {error && rawData.length > 0 && <div className="mb-4 p-4 bg-yellow-100 dark:bg-yellow-900 border border-yellow-300 dark:border-yellow-700 text-yellow-700 dark:text-yellow-200 rounded-md text-sm"><strong>Peringatan saat memuat data:</strong> {error} Data yang ditampilkan mungkin tidak lengkap atau usang.</div>}
 
             <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -1199,6 +1224,7 @@ const Dashboard = () => {
                 <p>Dasbor Keuangan &copy; {new Date().getFullYear()}. Dibuat dengan React, Tailwind CSS, dan Recharts.</p>
                 <p>Data diakses melalui Backend API dengan Google Service Account.</p>
             </footer>
+            </div>
             
             {/* Floating Donation Button */}
             <DonationButton variant="floating" size="lg" />
