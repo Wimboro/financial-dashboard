@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, Sector } from 'recharts';
-import { ChevronDown, ChevronUp, ArrowUpCircle, ArrowDownCircle, DollarSign, ListFilter, Search, CalendarDays, Tag, Info, RefreshCw, LayoutList, BarChart3, TrendingUp, TrendingDown, Trash2, Sparkles, Loader2, XCircle, Moon, Sun } from 'lucide-react';
+import { ArrowUpCircle, ArrowDownCircle, DollarSign, Search, CalendarDays, Info, RefreshCw, LayoutList, BarChart3, TrendingUp, TrendingDown, Trash2, Sparkles, Loader2, XCircle, Moon, Sun } from 'lucide-react';
 import { useDarkMode } from './hooks/useDarkMode';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { UserConfigProvider, useUserConfig } from './contexts/UserConfigContext';
@@ -436,7 +436,7 @@ const Dashboard = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
-    const [sortConfig, setSortConfig] = useState<{ key: keyof AppTransaction | 'parsedDate', direction: string }>({ key: 'Timestamp', direction: 'descending' });
+    const sortConfig = { key: 'Timestamp' as keyof AppTransaction | 'parsedDate', direction: 'descending' };
     const [currentPage, setCurrentPage] = useState(1);
     const [lastRefreshed, setLastRefreshed] = useState<Date | null>(null);
     const [selectedMonthKey, setSelectedMonthKey] = useState('');
@@ -611,10 +611,6 @@ const Dashboard = () => {
     const { totalIncome, totalExpenses, netBalance, monthlyTrends, monthlyExpenseCategoriesPie, filteredAndSortedData, monthlyCategorizedBreakdown, dailyBreakdown } = processedData;
     const paginatedData = useMemo(() => filteredAndSortedData.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE), [filteredAndSortedData, currentPage]);
     const totalPages = Math.ceil(filteredAndSortedData.length / ITEMS_PER_PAGE);
-    const requestSort = (key: keyof AppTransaction | 'parsedDate') => { 
-        let direction = 'ascending'; if (sortConfig.key === key && sortConfig.direction === 'ascending') direction = 'descending'; setSortConfig({ key, direction }); setCurrentPage(1); };
-    const getSortIcon = (key: keyof AppTransaction | 'parsedDate') => { 
-        if (sortConfig.key === key) return sortConfig.direction === 'ascending' ? <ChevronUp className="w-4 h-4 inline ml-1" /> : <ChevronDown className="w-4 h-4 inline ml-1" />; return <ListFilter className="w-4 h-4 inline ml-1 opacity-50" />; };
     const handleRefresh = () => {
         fetchData(true);
         setSelectedDailyDetailsDate(null); 
@@ -704,8 +700,7 @@ const Dashboard = () => {
     }, [selectedDailyDetailsDate, rawData]);
 
 
-    const tableHeaders = ['Date', 'Description', 'Category', 'Amount', 'Type', 'Actions'];
-    const headerKeysForSort: { [key: string]: keyof AppTransaction | 'parsedDate' } = { 'Date': 'parsedDate', 'Amount': 'amount', 'Description': 'description', 'Category': 'category', 'Type':'type' };
+
     
     const availableMonthsForCategoryView = Object.values(monthlyCategorizedBreakdown).sort((a, b) => new Date(b.name).getTime() - new Date(a.name).getTime()).map(month => ({ value: month.name, label: month.displayName }));
     const currentMonthIncomeCategories = monthlyCategorizedBreakdown[selectedMonthKey]?.incomeCategories || [];

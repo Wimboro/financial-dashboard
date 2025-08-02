@@ -4,4 +4,67 @@
     <string name="title_activity_main">Financial Dashboard</string>
     <string name="package_name">com.hiddenglam.financialdashboard</string>
     <string name="custom_url_scheme">com.hiddenglam.financialdashboard</string>
+    
+    <!-- Navigation titles -->
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_transactions">Transactions</string>
+    <string name="title_analytics">Analytics</string>
+    
+    <!-- Menu actions -->
+    <string name="action_refresh">Refresh</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    
+    <!-- Dashboard -->
+    <string name="total_income">Total Income</string>
+    <string name="total_expenses">Total Expenses</string>
+    <string name="net_balance">Net Balance</string>
+    <string name="monthly_trends">Monthly Trends</string>
+    <string name="expense_breakdown">Expense Breakdown</string>
+    
+    <!-- Authentication -->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="create_account">Create Account</string>
+    <string name="welcome_back">Welcome back! Please sign in to continue.</string>
+    <string name="create_account_subtitle">Create your account to get started.</string>
+    
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="google_sheet_id">Google Sheet ID</string>
+    <string name="gemini_api_key">Gemini API Key</string>
+    <string name="backend_api_url">Backend API URL</string>
+    
+    <!-- Common -->
+    <string name="loading">Loading...</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="search">Search</string>
+    
+    <!-- Transactions -->
+    <string name="transaction_date">Date</string>
+    <string name="transaction_description">Description</string>
+    <string name="transaction_category">Category</string>
+    <string name="transaction_amount">Amount</string>
+    <string name="transaction_type">Type</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense</string>
+    
+    <!-- Analytics -->
+    <string name="category_breakdown">Category Breakdown</string>
+    <string name="daily_breakdown">Daily Breakdown</string>
+    <string name="get_insights">Get AI Insights</string>
+    <string name="insights_from_gemini">Insights from Gemini</string>
+    
+    <!-- Formats -->
+    <string name="currency_idr">Rp %,d</string>
+    
 </resources>

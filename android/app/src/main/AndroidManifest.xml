@@ -24,6 +24,17 @@
 
         </activity>
 
+        <activity
+            android:name=".ui.auth.AuthActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:label="@string/settings"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

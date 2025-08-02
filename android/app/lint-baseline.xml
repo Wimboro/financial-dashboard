@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.7.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.2)" variant="all" version="8.7.2">
+
+    <issue
+        id="FragmentTagUsage"
+        message="Replace the &lt;fragment> tag with FragmentContainerView."
+        errorLine1="        &lt;fragment"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_main.xml"
+            line="30"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ManifestOrder"
+        message="`&lt;uses-permission>` tag appears after `&lt;application>` tag"
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; />"
+        errorLine2="     ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="51"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.appcompat:appcompat than 1.7.0 is available: 1.7.1"
+        errorLine1="    implementation &quot;androidx.appcompat:appcompat:$androidxAppCompatVersion&quot;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="56"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.coordinatorlayout:coordinatorlayout than 1.2.0 is available: 1.3.0"
+        errorLine1="    implementation &quot;androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion&quot;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="57"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of org.jetbrains.kotlin:kotlin-stdlib than 1.9.22 is available: 1.9.25"
+        errorLine1="    implementation &quot;org.jetbrains.kotlin:kotlin-stdlib:1.9.22&quot;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="61"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0"
+        errorLine1="    implementation &apos;com.google.android.material:material:1.11.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="64"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0"
+        errorLine1="    implementation &apos;androidx.recyclerview:recyclerview:1.3.2&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="67"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1"
+        errorLine1="    implementation &apos;androidx.constraintlayout:constraintlayout:2.1.4&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="71"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.viewpager2:viewpager2 than 1.0.0 is available: 1.1.0"
+        errorLine1="    implementation &apos;androidx.viewpager2:viewpager2:1.0.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="74"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel than 2.7.0 is available: 2.9.2"
+        errorLine1="    implementation &apos;androidx.lifecycle:lifecycle-viewmodel:2.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="98"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-livedata than 2.7.0 is available: 2.9.2"
+        errorLine1="    implementation &apos;androidx.lifecycle:lifecycle-livedata:2.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="99"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-common-java8 than 2.7.0 is available: 2.9.2"
+        errorLine1="    implementation &apos;androidx.lifecycle:lifecycle-common-java8:2.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="100"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.navigation:navigation-fragment than 2.7.6 is available: 2.9.3"
+        errorLine1="    implementation &apos;androidx.navigation:navigation-fragment:2.7.6&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="103"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.navigation:navigation-ui than 2.7.6 is available: 2.9.3"
+        errorLine1="    implementation &apos;androidx.navigation:navigation-ui:2.7.6&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="104"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="UseCompoundDrawables"
+        message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable"
+        errorLine1="        &lt;LinearLayout"
+        errorLine2="         ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_analytics.xml"
+            line="20"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (904 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="      android:pathData=&quot;M19.14,12.94c0.04,-0.3 0.06,-0.61 0.06,-0.94c0,-0.32 -0.02,-0.64 -0.07,-0.94l2.03,-1.58c0.18,-0.14 0.23,-0.41 0.12,-0.61l-1.92,-3.32c-0.12,-0.22 -0.37,-0.29 -0.59,-0.22l-2.39,0.96c-0.5,-0.38 -1.03,-0.7 -1.62,-0.94L14.4,2.81c-0.04,-0.24 -0.24,-0.41 -0.48,-0.41h-3.84c-0.24,0 -0.43,0.17 -0.47,0.41L9.25,5.35C8.66,5.59 8.12,5.92 7.63,6.29L5.24,5.33c-0.22,-0.08 -0.47,0 -0.59,0.22L2.74,8.87C2.62,9.08 2.66,9.34 2.86,9.48l2.03,1.58C4.84,11.36 4.8,11.69 4.8,12s0.02,0.64 0.07,0.94l-2.03,1.58c-0.18,0.14 -0.23,0.41 -0.12,0.61l1.92,3.32c0.12,0.22 0.37,0.29 0.59,0.22l2.39,-0.96c0.5,0.38 1.03,0.7 1.62,0.94l0.36,2.54c0.05,0.24 0.24,0.41 0.48,0.41h3.84c0.24,0 0.44,-0.17 0.47,-0.41l0.36,-2.54c0.59,-0.24 1.13,-0.56 1.62,-0.94l2.39,0.96c0.22,0.08 0.47,0 0.59,-0.22l1.92,-3.32c0.12,-0.22 0.07,-0.47 -0.12,-0.61L19.14,12.94zM12,15.6c-1.98,0 -3.6,-1.62 -3.6,-3.6s1.62,-3.6 3.6,-3.6s3.6,1.62 3.6,3.6S13.98,15.6 12,15.6z&quot;/>"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_settings.xml"
+            line="9"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `?attr/colorSurface` with a theme that also paints a background (inferred theme is `@style/AppTheme_NoActionBar`)"
+        errorLine1="    android:background=&quot;?attr/colorSurface&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_auth.xml"
+            line="7"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.purple_200` appears to be unused"
+        errorLine1="    &lt;color name=&quot;purple_200&quot;>#FFBB86FC&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="3"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.purple_500` appears to be unused"
+        errorLine1="    &lt;color name=&quot;purple_500&quot;>#FF6200EE&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="4"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.purple_700` appears to be unused"
+        errorLine1="    &lt;color name=&quot;purple_700&quot;>#FF3700B3&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="5"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.teal_200` appears to be unused"
+        errorLine1="    &lt;color name=&quot;teal_200&quot;>#FF03DAC5&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="6"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.teal_700` appears to be unused"
+        errorLine1="    &lt;color name=&quot;teal_700&quot;>#FF018786&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="7"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.black` appears to be unused"
+        errorLine1="    &lt;color name=&quot;black&quot;>#FF000000&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="8"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.white` appears to be unused"
+        errorLine1="    &lt;color name=&quot;white&quot;>#FFFFFFFF&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="9"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.primary_blue` appears to be unused"
+        errorLine1="    &lt;color name=&quot;primary_blue&quot;>#0ea5e9&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="29"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.primary_blue_dark` appears to be unused"
+        errorLine1="    &lt;color name=&quot;primary_blue_dark&quot;>#0284c7&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="30"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.surface_light` appears to be unused"
+        errorLine1="    &lt;color name=&quot;surface_light&quot;>#f8fafc&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="31"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.surface_dark` appears to be unused"
+        errorLine1="    &lt;color name=&quot;surface_dark&quot;>#0f172a&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="32"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.xml.config` appears to be unused"
+        errorLine1="&lt;widget version=&quot;1.0.0&quot; xmlns=&quot;http://www.w3.org/ns/widgets&quot; xmlns:cdv=&quot;http://cordova.apache.org/ns/1.0&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/xml/config.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.ic_launcher_background` appears to be unused"
+        errorLine1="    &lt;color name=&quot;ic_launcher_background&quot;>#FFFFFF&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/ic_launcher_background.xml"
+            line="3"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_launcher_foreground` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher_foreground.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.package_name` appears to be unused"
+        errorLine1="    &lt;string name=&quot;package_name&quot;>com.hiddenglam.financialdashboard&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="5"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.custom_url_scheme` appears to be unused"
+        errorLine1="    &lt;string name=&quot;custom_url_scheme&quot;>com.hiddenglam.financialdashboard&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="6"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.backend_api_url` appears to be unused"
+        errorLine1="    &lt;string name=&quot;backend_api_url&quot;>Backend API URL&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="41"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.loading` appears to be unused"
+        errorLine1="    &lt;string name=&quot;loading&quot;>Loading...&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="44"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.error` appears to be unused"
+        errorLine1="    &lt;string name=&quot;error&quot;>Error&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="45"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.retry` appears to be unused"
+        errorLine1="    &lt;string name=&quot;retry&quot;>Retry&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="46"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.cancel` appears to be unused"
+        errorLine1="    &lt;string name=&quot;cancel&quot;>Cancel&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="47"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.delete` appears to be unused"
+        errorLine1="    &lt;string name=&quot;delete&quot;>Delete&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="49"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.transaction_date` appears to be unused"
+        errorLine1="    &lt;string name=&quot;transaction_date&quot;>Date&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="53"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.transaction_description` appears to be unused"
+        errorLine1="    &lt;string name=&quot;transaction_description&quot;>Description&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="54"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.transaction_category` appears to be unused"
+        errorLine1="    &lt;string name=&quot;transaction_category&quot;>Category&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="55"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.transaction_amount` appears to be unused"
+        errorLine1="    &lt;string name=&quot;transaction_amount&quot;>Amount&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="56"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.transaction_type` appears to be unused"
+        errorLine1="    &lt;string name=&quot;transaction_type&quot;>Type&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="57"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.income` appears to be unused"
+        errorLine1="    &lt;string name=&quot;income&quot;>Income&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="58"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.expense` appears to be unused"
+        errorLine1="    &lt;string name=&quot;expense&quot;>Expense&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="59"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.category_breakdown` appears to be unused"
+        errorLine1="    &lt;string name=&quot;category_breakdown&quot;>Category Breakdown&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="62"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.daily_breakdown` appears to be unused"
+        errorLine1="    &lt;string name=&quot;daily_breakdown&quot;>Daily Breakdown&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="63"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.currency_idr` appears to be unused"
+        errorLine1="    &lt;string name=&quot;currency_idr&quot;>Rp %,d&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="68"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;loading&quot;>Loading...&lt;/string>"
+        errorLine2="                           ~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="44"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive icon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive roundIcon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="IconDipSize"
+        message="The image `splash.png` varies significantly in its density-independent (dip) size across the various density versions: drawable-land-hdpi/splash.png: 533x320 dp (800x480 px), drawable-land-mdpi/splash.png: 480x320 dp (480x320 px), drawable-land-xhdpi/splash.png: 640x360 dp (1280x720 px), drawable-land-xxhdpi/splash.png: 533x320 dp (1600x960 px), drawable-land-xxxhdpi/splash.png: 480x320 dp (1920x1280 px)">
+        <location
+            file="src/main/res/drawable-land-xxxhdpi/splash.png"/>
+        <location
+            file="src/main/res/drawable-land-mdpi/splash.png"/>
+        <location
+            file="src/main/res/drawable-land-xxhdpi/splash.png"/>
+        <location
+            file="src/main/res/drawable-land-hdpi/splash.png"/>
+        <location
+            file="src/main/res/drawable-land-xhdpi/splash.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        message="The `splash.png` icon has identical contents in the following configuration folders: drawable-land-mdpi, drawable">
+        <location
+            file="src/main/res/drawable/splash.png"/>
+        <location
+            file="src/main/res/drawable-land-mdpi/splash.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/splash.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/splash.png"/>
+    </issue>
+
+    <issue
+        id="KtxExtensionAvailable"
+        message="Add suffix `-ktx` to enable the Kotlin extensions for this library"
+        errorLine1="    implementation &apos;androidx.lifecycle:lifecycle-viewmodel:2.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="98"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="KtxExtensionAvailable"
+        message="Add suffix `-ktx` to enable the Kotlin extensions for this library"
+        errorLine1="    implementation &apos;androidx.lifecycle:lifecycle-livedata:2.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="99"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="KtxExtensionAvailable"
+        message="Add suffix `-ktx` to enable the Kotlin extensions for this library"
+        errorLine1="    implementation &apos;androidx.navigation:navigation-fragment:2.7.6&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="103"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="KtxExtensionAvailable"
+        message="Add suffix `-ktx` to enable the Kotlin extensions for this library"
+        errorLine1="    implementation &apos;androidx.navigation:navigation-ui:2.7.6&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="104"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="KtxExtensionAvailable"
+        message="Add suffix `-ktx` to enable the Kotlin extensions for this library"
+        errorLine1="    implementation &apos;androidx.preference:preference:1.2.1&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="107"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_auth.xml"
+            line="11"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="            &lt;ImageView"
+        errorLine2="             ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_analytics.xml"
+            line="27"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="        &lt;ImageView"
+        errorLine2="         ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_transactions.xml"
+            line="58"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvPlaceholder.text = &quot;Analytics features coming soon!\n\n&quot; +"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="40"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvPlaceholder.text = &quot;Analytics features coming soon!\n\n&quot; +"
+        errorLine2="                                     ^">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="40"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvPlaceholder.text = &quot;Analytics features coming soon!\n\n&quot; +"
+        errorLine2="                                     ^">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="40"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvPlaceholder.text = &quot;Analytics features coming soon!\n\n&quot; +"
+        errorLine2="                                     ^">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="40"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvPlaceholder.text = &quot;Analytics features coming soon!\n\n&quot; +"
+        errorLine2="                                     ^">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="40"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvPlaceholder.text = &quot;Analytics features coming soon!\n\n&quot; +"
+        errorLine2="                                     ^">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="40"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvPlaceholder.text = &quot;Analytics features coming soon!\n\n&quot; +"
+        errorLine2="                                     ^">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="40"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        binding.tvPlaceholder.text = &quot;Analytics features coming soon!\n\n&quot; +"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="40"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                &quot;This section will include:\n&quot; +"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="41"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="                &quot;This section will include:\n&quot; +"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="41"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                &quot;• Category breakdown charts\n&quot; +"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="42"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="                &quot;• Category breakdown charts\n&quot; +"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="42"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                &quot;• Daily spending patterns\n&quot; +"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="43"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="                &quot;• Daily spending patterns\n&quot; +"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="43"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                &quot;• Monthly comparisons\n&quot; +"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="44"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="                &quot;• Monthly comparisons\n&quot; +"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="44"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                &quot;• Spending trends\n&quot; +"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="45"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="                &quot;• Spending trends\n&quot; +"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="45"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="                &quot;• Budget tracking&quot;"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/analytics/AnalyticsFragment.kt"
+            line="46"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                binding.tvLastRefreshed.text = &quot;Last refreshed: ${android.text.format.DateFormat.getTimeFormat(context).format(date)}&quot;"
+        errorLine2="                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/dashboard/DashboardFragment.kt"
+            line="93"
+            column="48"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="                binding.tvLastRefreshed.text = &quot;Last refreshed: ${android.text.format.DateFormat.getTimeFormat(context).format(date)}&quot;"
+        errorLine2="                                                ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/dashboard/DashboardFragment.kt"
+            line="93"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                tvAmount.text = &quot;$prefix${transaction.getFormattedAmount()}&quot;"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/ui/transactions/TransactionAdapter.kt"
+            line="50"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;© 2024 Financial Dashboard. All rights reserved.&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;© 2024 Financial Dashboard. All rights reserved.&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_auth.xml"
+            line="88"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;API Configuration&quot;, should use `@string` resource"
+        errorLine1="                        android:text=&quot;API Configuration&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_settings.xml"
+            line="81"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Backend API URL (Localhost)&quot;, should use `@string` resource"
+        errorLine1="                        android:hint=&quot;Backend API URL (Localhost)&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_settings.xml"
+            line="123"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Backend API URL (Production)&quot;, should use `@string` resource"
+        errorLine1="                        android:hint=&quot;Backend API URL (Production)&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_settings.xml"
+            line="139"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Supabase Configuration&quot;, should use `@string` resource"
+        errorLine1="                        android:text=&quot;Supabase Configuration&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_settings.xml"
+            line="171"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Supabase URL&quot;, should use `@string` resource"
+        errorLine1="                        android:hint=&quot;Supabase URL&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_settings.xml"
+            line="181"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Supabase Anonymous Key&quot;, should use `@string` resource"
+        errorLine1="                        android:hint=&quot;Supabase Anonymous Key&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_settings.xml"
+            line="197"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Toggle password visibility&quot;, should use `@string` resource"
+        errorLine1="        android:contentDescription=&quot;Toggle password visibility&quot; />"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sign_in.xml"
+            line="61"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Toggle password visibility&quot;, should use `@string` resource"
+        errorLine1="        android:contentDescription=&quot;Toggle password visibility&quot; />"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sign_up.xml"
+            line="78"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;No transactions found&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;No transactions found&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_transactions.xml"
+            line="68"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Your transaction history will appear here&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Your transaction history will appear here&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_transactions.xml"
+            line="77"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="NullSafeMutableLiveData"
+        message="Expected non-nullable value"
+        errorLine1="                    _geminiInsights.value = result.data"
+        errorLine2="                                            ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/hiddenglam/financialdashboard/viewmodel/MainViewModel.kt"
+            line="78"
+            column="45"/>
+    </issue>
+
+</issues>

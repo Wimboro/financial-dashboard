@@ -87,11 +87,6 @@ cp .env.example .env
 
 4. Fill in your environment variables in the `.env` file
 
-5. Start the development server:
-```bash
-npm run dev
-```
-
 ## Google Sheets Data Format
 
 Your Google Sheet should have the following columns:

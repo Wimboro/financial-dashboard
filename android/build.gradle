@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:8.7.2'
         classpath 'com.google.gms:google-services:4.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -21,6 +22,19 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' } // For MPAndroidChart
+    }
+    
+    // Force consistent Java version across all modules
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
     }
 }
 

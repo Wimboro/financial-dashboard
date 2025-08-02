@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.hiddenglam.financialdashboard.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_transactions"
+        android:name="com.hiddenglam.financialdashboard.ui.transactions.TransactionsFragment"
+        android:label="@string/title_transactions"
+        tools:layout="@layout/fragment_transactions" />
+
+    <fragment
+        android:id="@+id/navigation_analytics"
+        android:name="com.hiddenglam.financialdashboard.ui.analytics.AnalyticsFragment"
+        android:label="@string/title_analytics"
+        tools:layout="@layout/fragment_analytics" />
+
+</navigation>
