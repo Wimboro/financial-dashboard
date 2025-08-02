@@ -48,3 +48,17 @@ body {
   /* You might want to adjust other elements for light mode if needed */
   /* For example, if using a specific button style that needs light/dark variants not covered by Tailwind */
 }
+
+/* Safe area padding for mobile devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .pt-safe {
+    padding-top: calc(env(safe-area-inset-top) + 2rem);
+  }
+}
+
+/* Fallback for devices that don't support safe-area-inset */
+@supports not (padding-top: env(safe-area-inset-top)) {
+  .pt-safe {
+    padding-top: 2rem;
+  }
+}
