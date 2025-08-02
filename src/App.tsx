@@ -714,7 +714,7 @@ const Dashboard = () => {
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
                 {/* Sticky Header for Mobile */}
-                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-8 pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
+                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-safe pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
                     <div className="flex flex-col sm:flex-row justify-between items-center">
                         <div className="flex items-center gap-3 sm:gap-4">
                             <Logo onClick={handleRefresh} loading={isLoading} />
@@ -762,7 +762,7 @@ const Dashboard = () => {
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
                 {/* Sticky Header for Mobile */}
-                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-8 pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
+                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-safe pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
                     <div className="flex flex-col sm:flex-row justify-between items-center">
                         <div className="flex items-center gap-3 sm:gap-4">
                             <Logo onClick={handleRefresh} loading={isLoading} />
@@ -816,7 +816,7 @@ const Dashboard = () => {
                 {notification.show && <div className={`fixed top-5 right-5 p-4 rounded-lg shadow-md text-white z-[100] ${notification.type === 'success' ? 'bg-emerald-500' : notification.type === 'error' ? 'bg-red-500' : 'bg-sky-500'}`}>{notification.message}</div>}
                 
                 {/* Sticky Header for Mobile */}
-                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-8 pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
+                <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-safe pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
                     <div className="flex flex-col sm:flex-row justify-between items-center">
                         <div className="flex items-center gap-3 sm:gap-4">
                             <Logo onClick={handleRefresh} loading={isLoading} />
@@ -934,7 +934,7 @@ const Dashboard = () => {
             />
             
             {/* Sticky Header for Mobile */}
-            <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-8 pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
+            <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 pt-safe pb-4 px-4 sm:pt-4 sm:px-6 md:px-8 mb-6 shadow-sm">
                 <div className="flex flex-col sm:flex-row justify-between items-center">
                     <div className="flex items-center gap-3 sm:gap-4">
                         <Logo onClick={handleRefresh} loading={isLoading} />
