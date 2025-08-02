@@ -430,7 +430,7 @@ const Dashboard = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     
     // User configuration hook
-    const { getGoogleSheetId, getGeminiApiKey, getBackendApiUrl, config, loading: configLoading } = useUserConfig();
+    const { getGoogleSheetId, getGeminiApiKey, getBackendApiUrl, config, loading: configLoading, error: configError } = useUserConfig();
 
     const [rawData, setRawData] = useState<AppTransaction[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -453,21 +453,43 @@ const Dashboard = () => {
     const [activeView, setActiveView] = useState<'category' | 'daily'>('category'); 
     const [selectedDailyDetailsDate, setSelectedDailyDetailsDate] = useState<string | null>(null);
 
-
     const ITEMS_PER_PAGE = 10;
+
+    // Debug logging
+    useEffect(() => {
+        console.log('Dashboard component mounted');
+        console.log('Config loading:', configLoading);
+        console.log('Config error:', configError);
+        console.log('Config data:', config);
+    }, [configLoading, configError, config]);
 
     const showNotification = (message: string, type: 'info' | 'success' | 'error' = 'info', duration = 3000) => { 
         setNotification({ show: true, message, type });
         setTimeout(() => setNotification({ show: false, message: '', type: 'info' }), duration);
     };
+    
     const fetchData = async (isRefresh = false) => { 
-        setIsLoading(true); setError(null);
+        setIsLoading(true); 
+        setError(null);
         try {
             const sheetId = getGoogleSheetId();
+            const backendApiUrl = getBackendApiUrl();
+            
             console.log('Fetching data with Google Sheet ID:', sheetId);
-            const { data: fetchedData, error: fetchError } = await fetchAndParseSheetData(sheetId, getBackendApiUrl());
+            console.log('Backend API URL:', backendApiUrl);
+            
+            if (!sheetId) {
+                throw new Error('Google Sheet ID not configured. Please set up your configuration in Settings.');
+            }
+            
+            if (!backendApiUrl) {
+                throw new Error('Backend API URL not configured. Please set up your configuration in Settings.');
+            }
+            
+            const { data: fetchedData, error: fetchError } = await fetchAndParseSheetData(sheetId, backendApiUrl);
             if (fetchError) throw new Error(fetchError);
-            setRawData(fetchedData); setLastRefreshed(new Date());
+            setRawData(fetchedData); 
+            setLastRefreshed(new Date());
             if (fetchedData.length > 0) {
                 const tempMonthlyCategorized = processMonthlyCategories(fetchedData); 
                 const monthKeys = Object.keys(tempMonthlyCategorized).sort((a,b) => new Date(b).getTime() - new Date(a).getTime()); 
@@ -478,7 +500,8 @@ const Dashboard = () => {
             }
             if(isRefresh) showNotification("Data berhasil disegarkan dari Google Sheet!", "success");
         } catch (e: any) {
-            setError(`Gagal mengambil/memproses data: ${e.message}`); setRawData([]); 
+            setError(`Gagal mengambil/memproses data: ${e.message}`); 
+            setRawData([]); 
             console.error("Fetch/Processing Error in App component:", e);
             showNotification(`Error menyegarkan data: ${e.message}`, "error", 5000);
         }
@@ -540,16 +563,31 @@ const Dashboard = () => {
             return;
         }
         
+        // Check for configuration errors
+        if (configError) {
+            console.error('Configuration error:', configError);
+            setError(`Configuration error: ${configError}`);
+            setIsLoading(false);
+            return;
+        }
+        
         const sheetId = getGoogleSheetId();
-        if (sheetId) {
-            console.log('User configuration ready, fetching data with sheet ID:', sheetId);
+        const backendApiUrl = getBackendApiUrl();
+        
+        console.log('User configuration ready');
+        console.log('Sheet ID:', sheetId);
+        console.log('Backend API URL:', backendApiUrl);
+        
+        if (sheetId && backendApiUrl) {
+            console.log('Configuration complete, fetching data...');
             fetchData(); 
         } else {
-            console.log('No Google Sheet ID configured, showing empty state');
+            console.log('Missing configuration, showing setup guide');
             setIsLoading(false);
             setRawData([]);
+            setError('Please configure your Google Sheet ID and Backend API URL in Settings to get started.');
         }
-    }, [configLoading, config?.google_sheet_id]); // Re-fetch when config loading is done or sheet ID changes
+    }, [configLoading, configError, config?.google_sheet_id, config?.backend_api_url_localhost, config?.backend_api_url_production]); // Re-fetch when config loading is done or config changes
 
     const processedData = useMemo(() => { 
         if (!rawData || rawData.length === 0) return { totalIncome: 0, totalExpenses: 0, netBalance: 0, monthlyTrends: [], monthlyExpenseCategoriesPie: [], filteredAndSortedData: [], monthlyCategorizedBreakdown: {}, dailyBreakdown: {} };
@@ -872,6 +910,90 @@ const Dashboard = () => {
                 </div>
             </div>
         ); 
+    }
+
+    // Setup guide component for when configuration is missing
+    const SetupGuide = () => (
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8">
+                    <div className="text-center mb-8">
+                        <div className="w-16 h-16 bg-sky-100 dark:bg-sky-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <Settings className="w-8 h-8 text-sky-600" />
+                        </div>
+                        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+                            Welcome to Your Financial Dashboard
+                        </h1>
+                        <p className="text-slate-600 dark:text-slate-400">
+                            Let's get you set up with your personal configuration
+                        </p>
+                    </div>
+                    
+                    <div className="space-y-6">
+                        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+                            <div className="flex items-start gap-3">
+                                <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5" />
+                                <div>
+                                    <h3 className="font-medium text-amber-800 dark:text-amber-200 mb-1">
+                                        Configuration Required
+                                    </h3>
+                                    <p className="text-sm text-amber-700 dark:text-amber-300">
+                                        To display your financial data, you need to configure your Google Sheet ID and Backend API URL.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-6">
+                                <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-3 flex items-center gap-2">
+                                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                                    Google Sheets Setup
+                                </h3>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2">
+                                    <li>• Create a Google Sheet with your financial data</li>
+                                    <li>• Share it with your service account email</li>
+                                    <li>• Copy the Sheet ID from the URL</li>
+                                </ul>
+                            </div>
+                            
+                            <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-6">
+                                <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-3 flex items-center gap-2">
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                    Backend API Setup
+                                </h3>
+                                <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2">
+                                    <li>• Set up your backend API server</li>
+                                    <li>• Configure the API endpoint URL</li>
+                                    <li>• Ensure proper authentication</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div className="text-center">
+                            <button
+                                onClick={() => {
+                                    // Open settings modal by triggering the settings button
+                                    const settingsButton = document.querySelector('[data-settings-button]') as HTMLButtonElement;
+                                    if (settingsButton) {
+                                        settingsButton.click();
+                                    }
+                                }}
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-medium rounded-lg transition-colors"
+                            >
+                                <Settings className="w-4 h-4" />
+                                Open Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+
+    // Show setup guide if there's a configuration error
+    if (error && (error.includes('configure') || error.includes('Google Sheet ID') || error.includes('Backend API URL'))) {
+        return <SetupGuide />;
     }
 
     return (
